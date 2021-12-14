@@ -3,11 +3,20 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
+/*
+	Corey Beaver
+	Last Edited 12.14.2021
 
-import com.google.gson.*;
+	GUI.java
+	This class handles all of the graphical side of the application
+	Still just JOptionPane, but I will update the application to use
+	the Swing library, for an actaul graphical user interface, that can 
+	run on all platforms.
 
+	This class also contains our entry point
+ */
 public class GUI {
-
+	// The list of all of the accounts
 	private static List<BankAccount> accounts;
 
 	public static void main(String[] args) throws IOException {
@@ -18,9 +27,12 @@ public class GUI {
 
 		boolean running = true;
 
+		// Contains the current accounts' data
 		String name;
 		double ammount;
+
 		while(running) {
+			// Get the current command
 			String command = JOptionPane.showInputDialog("Command (create, deposit, withdraw, check, close)");
 			switch (command) {
 			case "create":

@@ -9,6 +9,7 @@ import java.util.Scanner;
 /*
  * Corey Beaver, AP Computer Science A
  * 10.4.2021
+ * Last Edited 12.14.2021
  *
  * This class takes care of everything to do with files
  * Without this class, we would have to manually create all accounts everytime we started the program
@@ -128,13 +129,18 @@ public class FileSystem {
 		}
 		// If we cannot open the file
 		catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
+			// Create the file
+			File file = new File("accounts.txt");
+			file.createNewFile();
 			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
 
+	/*
+		Clear the files content, erasing all account data
+	 */
 	public static void clearFile() {
 		FileWriter fwOb;
 		try {
