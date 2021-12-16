@@ -22,7 +22,7 @@ public class FileSystem {
 	/**
 	 * Returns a list of all bank accounts in the given file
 	 */
-	public static List<BankAccount> serializeAccounts(String location) {
+	public static List<BankAccount> serializeAccounts() {
 		// Create an empty list, we will return this list
 		List<BankAccount> accounts = new ArrayList<BankAccount>();
 
@@ -33,10 +33,10 @@ public class FileSystem {
 		// Try to open the file and if it does not exist, create it
 		try {
 			// This will allow us to read the file
-			file = new File(location);
+			file = new File("accounts.txt");
 			inputFile = new Scanner(file);
 
-			// Nessasary For Createing the account dynamically
+			// Nessasary For Creating the account dynamically
 			String first = "";
 			String last = "";
 			Double ammount;
@@ -66,8 +66,14 @@ public class FileSystem {
 
 			}
 		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-			// Create a file
+			// Create the file
+			File file = new File("accounts.txt");
+			file.createNewFile();
+			return serializeAccounts();
+		} finally {
+			// Close the scanner, we do not need it anymore and do not want the 
+			// File to still be open
+			inputFile.close();
 		}
 
 		return accounts;
@@ -93,8 +99,10 @@ public class FileSystem {
 		}
 		// If we cannot open the file
 		catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			// Create the file
+			File file = new File("accounts.txt");
+			file.createNewFile();
+			writeAccount(account);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -132,7 +140,7 @@ public class FileSystem {
 			// Create the file
 			File file = new File("accounts.txt");
 			file.createNewFile();
-			e.printStackTrace();
+			updateAmmount(accounts);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

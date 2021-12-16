@@ -22,7 +22,7 @@ public class GUI {
 	public static void main(String[] args) throws IOException {
 
 		// Serialize all objects
-		accounts = FileSystem.serializeAccounts("accounts.txt");
+		accounts = FileSystem.serializeAccounts();
 
 
 		boolean running = true;

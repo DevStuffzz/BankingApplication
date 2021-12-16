@@ -1,4 +1,12 @@
 
+
+/*
+	Corey Beaver
+
+	BankAccount.java
+	This class contians data for a bank account. These variables include the name and ammount. 
+	The ammount is the current ballence of the bank account.
+*/
 public class BankAccount {
 	public String name;
 	private double ammount;
